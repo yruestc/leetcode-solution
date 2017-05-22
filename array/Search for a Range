@@ -1,0 +1,24 @@
+int size=nums.size();
+        int left=0;
+        int right=size;
+        int l,r;
+        while(left<right)
+        {
+            int mid=(left+right)/2;
+            if(nums[mid]>=target)
+              right=mid;
+            else
+              left=mid+1;
+        }
+        l=left;
+        left=0,right=size;//重新定义一次
+         while(left<right)
+        {
+            int mid=(left+right)/2;
+            if(nums[mid]>target)
+              right=mid;
+            else
+              left=mid+1;
+        }
+        r=left;
+        return r==l? vector<int> {-1,-1} : vector<int> {l,r-1};
